@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.0.0)
+project(pycproject VERSION 0.1.0)
+
+find_package(LLVM REQUIRED CONFIG)
+separate_arguments(LLVM_DEFINATIONS_LIST NATIVE_COMMAND ${LLVM_DEFINATIONS})
+add_definitions(${LLVM_DEFINATIONS_LIST})
+include_directories(${LLVM_INCLUDE_DIRS})
+add_subdirectory(hello_pass)
+
+include(CTest)
+enable_testing()
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)
