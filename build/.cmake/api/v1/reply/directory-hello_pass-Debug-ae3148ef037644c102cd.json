@@ -1,0 +1,53 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install",
+			"add_llvm_library"
+		],
+		"files" : 
+		[
+			"/usr/lib/cmake/llvm/AddLLVM.cmake",
+			"hello_pass/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 2,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 846,
+				"parent" : 1
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 2,
+			"component" : "ArgParse",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"hello_pass/ArgParse.so"
+			],
+			"targetId" : "ArgParse::@6e0f7a64b658105e1c60",
+			"targetIndex" : 0,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "hello_pass",
+		"source" : "hello_pass"
+	}
+}

@@ -288,6 +288,48 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 
 #############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles/install.util: CUSTOM_COMMAND all
+  COMMAND = cd /home/ushio/some/project/build && /usr/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CMakeFiles/install/local.util: CUSTOM_COMMAND all
+  COMMAND = cd /home/ushio/some/project/build && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build install/local: phony CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
+  COMMAND = cd /home/ushio/some/project/build && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build install/strip: phony CMakeFiles/install/strip.util
+
+
+#############################################
 # Custom command for CMakeFiles/Experimental
 
 build CMakeFiles/Experimental | ${cmake_ninja_workdir}CMakeFiles/Experimental: CUSTOM_COMMAND
@@ -516,36 +558,49 @@ build CMakeFiles/ContinuousSubmit | ${cmake_ninja_workdir}CMakeFiles/ContinuousS
 # =============================================================================
 
 # =============================================================================
-# Object build statements for MODULE_LIBRARY target HelloPass
+# Object build statements for MODULE_LIBRARY target ArgParse
 
 
 #############################################
-# Order-only phony target for HelloPass
+# Order-only phony target for ArgParse
 
-build cmake_object_order_depends_target_HelloPass: phony || hello_pass/CMakeFiles/HelloPass.dir
+build cmake_object_order_depends_target_ArgParse: phony || hello_pass/CMakeFiles/ArgParse.dir
 
-build hello_pass/CMakeFiles/HelloPass.dir/hello_pass.cpp.o: CXX_COMPILER__HelloPass_Debug /home/ushio/some/project/hello_pass/hello_pass.cpp || cmake_object_order_depends_target_HelloPass
-  DEFINES = -DHelloPass_EXPORTS
-  DEP_FILE = hello_pass/CMakeFiles/HelloPass.dir/hello_pass.cpp.o.d
-  FLAGS = -g -fPIC -fno-rtti
-  OBJECT_DIR = hello_pass/CMakeFiles/HelloPass.dir
-  OBJECT_FILE_DIR = hello_pass/CMakeFiles/HelloPass.dir
+build hello_pass/CMakeFiles/ArgParse.dir/hello_pass.cpp.o: CXX_COMPILER__ArgParse_Debug /home/ushio/some/project/hello_pass/hello_pass.cpp || cmake_object_order_depends_target_ArgParse
+  DEP_FILE = hello_pass/CMakeFiles/ArgParse.dir/hello_pass.cpp.o.d
+  FLAGS = -g -fPIC  -fno-exceptions
+  OBJECT_DIR = hello_pass/CMakeFiles/ArgParse.dir
+  OBJECT_FILE_DIR = hello_pass/CMakeFiles/ArgParse.dir
 
 
 # =============================================================================
-# Link build statements for MODULE_LIBRARY target HelloPass
+# Link build statements for MODULE_LIBRARY target ArgParse
 
 
 #############################################
-# Link the shared module hello_pass/libHelloPass.so
+# Link the shared module hello_pass/ArgParse.so
 
-build hello_pass/libHelloPass.so: CXX_MODULE_LIBRARY_LINKER__HelloPass_Debug hello_pass/CMakeFiles/HelloPass.dir/hello_pass.cpp.o
+build hello_pass/ArgParse.so: CXX_MODULE_LIBRARY_LINKER__ArgParse_Debug hello_pass/CMakeFiles/ArgParse.dir/hello_pass.cpp.o | /usr/lib/libLLVM-15.so
   LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = hello_pass/CMakeFiles/HelloPass.dir
+  LINK_FLAGS = -Wl,-rpath-link,  -Wl,--gc-sections
+  LINK_LIBRARIES = -Wl,-rpath,"\$$ORIGIN/../lib:/usr/lib"  /usr/lib/libLLVM-15.so
+  OBJECT_DIR = hello_pass/CMakeFiles/ArgParse.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = hello_pass/libHelloPass.so
-  TARGET_PDB = HelloPass.so.dbg
+  TARGET_FILE = hello_pass/ArgParse.so
+  TARGET_PDB = ArgParse.so.dbg
+
+
+#############################################
+# Utility command for install-ArgParse
+
+build hello_pass/install-ArgParse: phony hello_pass/CMakeFiles/install-ArgParse hello_pass/ArgParse.so
+
+
+#############################################
+# Utility command for install-ArgParse-stripped
+
+build hello_pass/install-ArgParse-stripped: phony hello_pass/CMakeFiles/install-ArgParse-stripped hello_pass/ArgParse.so
 
 
 #############################################
@@ -607,12 +662,74 @@ build hello_pass/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build hello_pass/rebuild_cache: phony hello_pass/CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build hello_pass/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build hello_pass/CMakeFiles/install.util: CUSTOM_COMMAND hello_pass/all
+  COMMAND = cd /home/ushio/some/project/build/hello_pass && /usr/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build hello_pass/install: phony hello_pass/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build hello_pass/CMakeFiles/install/local.util: CUSTOM_COMMAND hello_pass/all
+  COMMAND = cd /home/ushio/some/project/build/hello_pass && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build hello_pass/install/local: phony hello_pass/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build hello_pass/CMakeFiles/install/strip.util: CUSTOM_COMMAND hello_pass/all
+  COMMAND = cd /home/ushio/some/project/build/hello_pass && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build hello_pass/install/strip: phony hello_pass/CMakeFiles/install/strip.util
+
+
+#############################################
+# Custom command for hello_pass/CMakeFiles/install-ArgParse
+
+build hello_pass/CMakeFiles/install-ArgParse | ${cmake_ninja_workdir}hello_pass/CMakeFiles/install-ArgParse: CUSTOM_COMMAND || hello_pass/ArgParse.so
+  COMMAND = cd /home/ushio/some/project/build/hello_pass && /usr/bin/cmake -DCMAKE_INSTALL_COMPONENT="ArgParse" -P /home/ushio/some/project/build/cmake_install.cmake
+  pool = console
+
+
+#############################################
+# Custom command for hello_pass/CMakeFiles/install-ArgParse-stripped
+
+build hello_pass/CMakeFiles/install-ArgParse-stripped | ${cmake_ninja_workdir}hello_pass/CMakeFiles/install-ArgParse-stripped: CUSTOM_COMMAND || hello_pass/ArgParse.so
+  COMMAND = cd /home/ushio/some/project/build/hello_pass && /usr/bin/cmake -DCMAKE_INSTALL_COMPONENT="ArgParse" -DCMAKE_INSTALL_DO_STRIP=1 -P /home/ushio/some/project/build/cmake_install.cmake
+  pool = console
+
 # =============================================================================
 # Target aliases.
 
-build HelloPass: phony hello_pass/libHelloPass.so
+build ArgParse: phony hello_pass/ArgParse.so
 
-build libHelloPass.so: phony hello_pass/libHelloPass.so
+build ArgParse.so: phony hello_pass/ArgParse.so
+
+build install-ArgParse: phony hello_pass/install-ArgParse
+
+build install-ArgParse-stripped: phony hello_pass/install-ArgParse-stripped
 
 # =============================================================================
 # Folder targets.
@@ -629,7 +746,7 @@ build all: phony hello_pass/all
 #############################################
 # Folder: /home/ushio/some/project/build/hello_pass
 
-build hello_pass/all: phony hello_pass/libHelloPass.so
+build hello_pass/all: phony hello_pass/ArgParse.so
 
 # =============================================================================
 # Unknown Build Time Dependencies.
@@ -643,14 +760,14 @@ build hello_pass/all: phony hello_pass/libHelloPass.so
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/ushio/some/project/CMakeLists.txt /home/ushio/some/project/hello_pass/CMakeLists.txt /usr/lib/cmake/llvm/FindFFI.cmake /usr/lib/cmake/llvm/FindTerminfo.cmake /usr/lib/cmake/llvm/Findzstd.cmake /usr/lib/cmake/llvm/LLVM-Config.cmake /usr/lib/cmake/llvm/LLVMConfig.cmake /usr/lib/cmake/llvm/LLVMConfigVersion.cmake /usr/lib/cmake/llvm/LLVMExports-release.cmake /usr/lib/cmake/llvm/LLVMExports.cmake /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakePushCheckState.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/CPack.cmake /usr/share/cmake/Modules/CPackComponent.cmake /usr/share/cmake/Modules/CTest.cmake /usr/share/cmake/Modules/CTestTargets.cmake /usr/share/cmake/Modules/CTestUseLaunchers.cmake /usr/share/cmake/Modules/CheckCSourceCompiles.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/Clang-C.cmake /usr/share/cmake/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake/Modules/Compiler/Clang.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/DartConfiguration.tcl.in /usr/share/cmake/Modules/FindLibXml2.cmake /usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake/Modules/FindPackageMessage.cmake /usr/share/cmake/Modules/FindPkgConfig.cmake /usr/share/cmake/Modules/FindZLIB.cmake /usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake/Modules/Platform/Linux-Clang-C.cmake /usr/share/cmake/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake /usr/share/cmake/Modules/SelectLibraryConfigurations.cmake /usr/share/cmake/Templates/CPackConfig.cmake.in CMakeCache.txt CMakeFiles/3.25.2/CMakeCCompiler.cmake CMakeFiles/3.25.2/CMakeCXXCompiler.cmake CMakeFiles/3.25.2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/ushio/some/project/CMakeLists.txt /home/ushio/some/project/hello_pass/CMakeLists.txt /usr/lib/cmake/llvm/AddLLVM.cmake /usr/lib/cmake/llvm/DetermineGCCCompatible.cmake /usr/lib/cmake/llvm/FindFFI.cmake /usr/lib/cmake/llvm/FindTerminfo.cmake /usr/lib/cmake/llvm/Findzstd.cmake /usr/lib/cmake/llvm/LLVM-Config.cmake /usr/lib/cmake/llvm/LLVMConfig.cmake /usr/lib/cmake/llvm/LLVMConfigVersion.cmake /usr/lib/cmake/llvm/LLVMDistributionSupport.cmake /usr/lib/cmake/llvm/LLVMExports-release.cmake /usr/lib/cmake/llvm/LLVMExports.cmake /usr/lib/cmake/llvm/LLVMProcessSources.cmake /usr/share/cmake/Modules/AddFileDependencies.cmake /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeParseArguments.cmake /usr/share/cmake/Modules/CMakePushCheckState.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/CPack.cmake /usr/share/cmake/Modules/CPackComponent.cmake /usr/share/cmake/Modules/CTest.cmake /usr/share/cmake/Modules/CTestTargets.cmake /usr/share/cmake/Modules/CTestUseLaunchers.cmake /usr/share/cmake/Modules/CheckCSourceCompiles.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/Clang-C.cmake /usr/share/cmake/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake/Modules/Compiler/Clang.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/DartConfiguration.tcl.in /usr/share/cmake/Modules/FindLibXml2.cmake /usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake/Modules/FindPackageMessage.cmake /usr/share/cmake/Modules/FindPkgConfig.cmake /usr/share/cmake/Modules/FindZLIB.cmake /usr/share/cmake/Modules/GNUInstallDirs.cmake /usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake/Modules/Platform/Linux-Clang-C.cmake /usr/share/cmake/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake /usr/share/cmake/Modules/SelectLibraryConfigurations.cmake /usr/share/cmake/Templates/CPackConfig.cmake.in CMakeCache.txt CMakeFiles/3.25.2/CMakeCCompiler.cmake CMakeFiles/3.25.2/CMakeCXXCompiler.cmake CMakeFiles/3.25.2/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/ushio/some/project/CMakeLists.txt /home/ushio/some/project/hello_pass/CMakeLists.txt /usr/lib/cmake/llvm/FindFFI.cmake /usr/lib/cmake/llvm/FindTerminfo.cmake /usr/lib/cmake/llvm/Findzstd.cmake /usr/lib/cmake/llvm/LLVM-Config.cmake /usr/lib/cmake/llvm/LLVMConfig.cmake /usr/lib/cmake/llvm/LLVMConfigVersion.cmake /usr/lib/cmake/llvm/LLVMExports-release.cmake /usr/lib/cmake/llvm/LLVMExports.cmake /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakePushCheckState.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/CPack.cmake /usr/share/cmake/Modules/CPackComponent.cmake /usr/share/cmake/Modules/CTest.cmake /usr/share/cmake/Modules/CTestTargets.cmake /usr/share/cmake/Modules/CTestUseLaunchers.cmake /usr/share/cmake/Modules/CheckCSourceCompiles.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/Clang-C.cmake /usr/share/cmake/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake/Modules/Compiler/Clang.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/DartConfiguration.tcl.in /usr/share/cmake/Modules/FindLibXml2.cmake /usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake/Modules/FindPackageMessage.cmake /usr/share/cmake/Modules/FindPkgConfig.cmake /usr/share/cmake/Modules/FindZLIB.cmake /usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake/Modules/Platform/Linux-Clang-C.cmake /usr/share/cmake/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake /usr/share/cmake/Modules/SelectLibraryConfigurations.cmake /usr/share/cmake/Templates/CPackConfig.cmake.in CMakeCache.txt CMakeFiles/3.25.2/CMakeCCompiler.cmake CMakeFiles/3.25.2/CMakeCXXCompiler.cmake CMakeFiles/3.25.2/CMakeSystem.cmake: phony
+build /home/ushio/some/project/CMakeLists.txt /home/ushio/some/project/hello_pass/CMakeLists.txt /usr/lib/cmake/llvm/AddLLVM.cmake /usr/lib/cmake/llvm/DetermineGCCCompatible.cmake /usr/lib/cmake/llvm/FindFFI.cmake /usr/lib/cmake/llvm/FindTerminfo.cmake /usr/lib/cmake/llvm/Findzstd.cmake /usr/lib/cmake/llvm/LLVM-Config.cmake /usr/lib/cmake/llvm/LLVMConfig.cmake /usr/lib/cmake/llvm/LLVMConfigVersion.cmake /usr/lib/cmake/llvm/LLVMDistributionSupport.cmake /usr/lib/cmake/llvm/LLVMExports-release.cmake /usr/lib/cmake/llvm/LLVMExports.cmake /usr/lib/cmake/llvm/LLVMProcessSources.cmake /usr/share/cmake/Modules/AddFileDependencies.cmake /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeParseArguments.cmake /usr/share/cmake/Modules/CMakePushCheckState.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/CPack.cmake /usr/share/cmake/Modules/CPackComponent.cmake /usr/share/cmake/Modules/CTest.cmake /usr/share/cmake/Modules/CTestTargets.cmake /usr/share/cmake/Modules/CTestUseLaunchers.cmake /usr/share/cmake/Modules/CheckCSourceCompiles.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/Clang-C.cmake /usr/share/cmake/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake/Modules/Compiler/Clang.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/DartConfiguration.tcl.in /usr/share/cmake/Modules/FindLibXml2.cmake /usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake/Modules/FindPackageMessage.cmake /usr/share/cmake/Modules/FindPkgConfig.cmake /usr/share/cmake/Modules/FindZLIB.cmake /usr/share/cmake/Modules/GNUInstallDirs.cmake /usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake/Modules/Platform/Linux-Clang-C.cmake /usr/share/cmake/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake /usr/share/cmake/Modules/SelectLibraryConfigurations.cmake /usr/share/cmake/Templates/CPackConfig.cmake.in CMakeCache.txt CMakeFiles/3.25.2/CMakeCCompiler.cmake CMakeFiles/3.25.2/CMakeCXXCompiler.cmake CMakeFiles/3.25.2/CMakeSystem.cmake: phony
 
 
 #############################################

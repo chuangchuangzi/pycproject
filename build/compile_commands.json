@@ -1,7 +1,7 @@
 [
 {
   "directory": "/home/ushio/some/project/build",
-  "command": "/usr/bin/clang++ -DHelloPass_EXPORTS -g -fPIC -fno-rtti -o hello_pass/CMakeFiles/HelloPass.dir/hello_pass.cpp.o -c /home/ushio/some/project/hello_pass/hello_pass.cpp",
+  "command": "/usr/bin/clang++ -g -fPIC  -fno-exceptions -o hello_pass/CMakeFiles/ArgParse.dir/hello_pass.cpp.o -c /home/ushio/some/project/hello_pass/hello_pass.cpp",
   "file": "/home/ushio/some/project/hello_pass/hello_pass.cpp"
 }
 ]
